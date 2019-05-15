@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+	
+    stages {
+        stage('Git-Checkout'){
+            steps{
+                echo "Checking out from Git Repo";
+                git 'https://github.com/DhruvinSoni30/Jenkins_Demo2.git'
+                
+            }
+        }
+		
+        stage('Build'){
+            steps{
+                echo "Build stage 1";
+                bat label: '', script: 'Build.bat'
+               
+            }
+        }
+		
+        stage('Deploy'){
+            steps{
+                echo "Deploy stage 1";
+                bat label: '', script: 'Deploy.bat'
+                
+                
+            }
+        }
+		
+        stage('Test'){
+            steps{
+                echo "Test stage 1";
+                bat label: '', script: 'Test.bat'
+                
+               
+            }
+        }
+            
+        }
+    }
